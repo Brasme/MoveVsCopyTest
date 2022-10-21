@@ -27,16 +27,17 @@ void big_set_counter(big_t* big, uint64_t counter)
         return;
     big->counter = counter;
     char* b = big->counterHexStr;
-    unsigned i = 8;
+    size_t i = BIG_COUNTER_STR_SIZE;
+    while (i > 8) {
+        --i;
+        b[i] = '\0';    
+    }
     while (i>0) {
         --i;
         b[i] = hexChar[counter & 0xf];
         counter = counter >> 4;
     }
-    while (i < 16) {
-        *b = '\0';
-        ++i;
-    }
+    
 }
 
 void big_set_debug(big_t* big, char* debugStr)
@@ -44,7 +45,7 @@ void big_set_debug(big_t* big, char* debugStr)
     if (big == NULL)
         return;
 
-    char* b = big->languageStr;
+    char* b = big->debugStr;
     unsigned i = 0;
     while (i < 15 && *debugStr != '\0') {
         *(b++) = *(debugStr++);
