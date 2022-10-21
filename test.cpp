@@ -75,8 +75,5 @@ TEST(big_test, big_c_performance_test)
 
 	perf_duration_t t = std::chrono::duration_cast<perf_duration_t>(t1 - t0);
 
-	std::stringstream ss;
-	ss << "Time (N=" << N << "): " << t.count() << " seconds\n";
-
-	EXPECT_EQ(ss.str(), "");
+	std::cout << "Time (N=" << N << "): " << t.count() << " seconds\n";
 }
