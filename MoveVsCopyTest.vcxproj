@@ -37,7 +37,8 @@
     <ClInclude Include="big.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="big.c" />
+    <ClCompile Include="big_c.c" />
+    <ClCompile Include="big_cpp.cpp" />
     <ClCompile Include="big_product_a_specific.c" />
     <ClCompile Include="big_product_b_specific.c" />
     <ClCompile Include="test.cpp" />

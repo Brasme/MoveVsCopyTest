@@ -54,5 +54,23 @@ extern "C" {
 	char *big_dump(const big_t* big,char *dst,size_t dstSize);
 
 #ifdef __cplusplus
+
+	struct Big {
+		big_t big;
+
+		Big();
+		Big(uint64_t counter);
+
+		Big& set_language(char* languageStr);
+		Big& set_counter(uint64_t counter);
+		Big& set_debug(char* debugStr);
+
+		Big& init_product_default();
+		Big& init(uint64_t counter);
+
+		static Big create(uint64_t counter);
+		static Big create_and_update(uint64_t counter);
+	};
+
 }
 #endif

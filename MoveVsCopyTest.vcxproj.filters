@@ -8,6 +8,7 @@
     <ClCompile Include="big_product_b_specific.c">
       <Filter>product</Filter>
     </ClCompile>
+    <ClCompile Include="big_cpp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="product">

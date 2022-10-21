@@ -75,5 +75,26 @@ TEST(big_test, big_c_performance_test)
 
 	perf_duration_t t = std::chrono::duration_cast<perf_duration_t>(t1 - t0);
 
-	std::cout << "Time (N=" << N << "): " << t.count() << " seconds\n";
+	std::cout << "C  : Time (N=" << N << "): " << t.count() << " seconds\n";
+}
+
+TEST(big_test, big_cpp_performance_test)
+{
+	perf_time_t t0 = perf_clock_t::now();
+	perf_time_t t1 = perf_clock_t::now();
+
+	Big big = Big::create_and_update(0);
+
+	size_t N = 1000000;
+
+	t0 = perf_clock_t::now();
+	for (size_t n = 0; n < N; ++n) {
+		Big tmp = Big::create_and_update(n);
+		big.big.counter = tmp.big.counter;
+	}
+	t1 = perf_clock_t::now();
+
+	perf_duration_t t = std::chrono::duration_cast<perf_duration_t>(t1 - t0);
+
+	std::cout << "Cpp: Time (N=" << N << "): " << t.count() << " seconds\n";
 }
