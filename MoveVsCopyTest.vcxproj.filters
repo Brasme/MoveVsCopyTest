@@ -9,6 +9,8 @@
       <Filter>product</Filter>
     </ClCompile>
     <ClCompile Include="big_cpp.cpp" />
+    <ClCompile Include="big_c.c" />
+    <ClCompile Include="gtest_main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="product">
@@ -19,5 +21,9 @@
     <ClInclude Include="product.h">
       <Filter>product</Filter>
     </ClInclude>
+    <ClInclude Include="big.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

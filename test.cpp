@@ -1,6 +1,6 @@
 
-#include "big.h"
 #include "gtest/gtest.h"
+#include "big.h"
 #include <chrono>
 
 TEST(big_test, big_struct)
@@ -97,4 +97,28 @@ TEST(big_test, big_cpp_performance_test)
 	perf_duration_t t = std::chrono::duration_cast<perf_duration_t>(t1 - t0);
 
 	std::cout << "Cpp: Time (N=" << N << "): " << t.count() << " seconds\n";
+}
+
+TEST(big_test, init)
+{
+    big_t b;
+	big_init(&b,0);
+	EXPECT_EQ(b.counter, 0);
+	EXPECT_STREQ(b.languageStr, "c");
+	EXPECT_STREQ(b.counterHexStr, "00000000");
+	// ... then the rest
+
+}
+
+TEST(big_test, hexstr_set)
+{
+    big_t b;
+	big_init(&b,0);
+
+	big_set_counter(&b,0x12345678);
+    EXPECT_STREQ(b.counterHexStr, "12345678");
+
+	big_set_counter(&b,0x123456780abcd);
+    EXPECT_STREQ(b.counterHexStr, "12345678");
+
 }
