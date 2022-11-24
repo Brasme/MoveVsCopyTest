@@ -118,7 +118,7 @@ TEST(big_test, hexstr_set)
 	big_set_counter(&b,0x12345678);
     EXPECT_STREQ(b.counterHexStr, "12345678");
 
-	big_set_counter(&b,0x123456780abcd);
-    EXPECT_STREQ(b.counterHexStr, "12345678");
+	big_set_counter(&b,0x123456780abcd); // Note - this is code to illustrate need of unit tests / TDD
+    EXPECT_STREQ(b.counterHexStr, "1234567890abcdef");
 
 }
